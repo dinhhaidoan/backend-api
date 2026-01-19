@@ -6,7 +6,7 @@ export async function seedUsers(prisma: PrismaClient) {
     update: {},
     create: {
       email: 'admin@system.com',
-      password: 'hashed-password', // Lưu ý: Thực tế nên dùng bcrypt để hash ở đây
+      password: 'hashed-password', // TODO: Nhớ dùng bcrypt để hash password thực tế
       roles: {
         create: {
           role: { connect: { name: 'ADMIN' } },
@@ -14,6 +14,4 @@ export async function seedUsers(prisma: PrismaClient) {
       },
     },
   });
-
-  console.log('✅ Users seeded');
 }

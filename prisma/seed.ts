@@ -6,11 +6,9 @@ const prisma = new PrismaClient();
 
 async function main() {
   console.log('🌱 Start seeding...');
-
-  // Truyền instance prisma vào các hàm con
+  // Truyền instance prisma vào
   await seedRoles(prisma);
   await seedUsers(prisma);
-
   console.log('🌳 Seeding finished.');
 }
 
