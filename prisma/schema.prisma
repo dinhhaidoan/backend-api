@@ -1,14 +1,17 @@
+// --- 00-generator.prisma ---
 generator client {
   provider = "prisma-client-js"
   previewFeatures = ["driverAdapters"]
 }
 
 
+// --- 01-datasource.prisma ---
 datasource db {
   provider = "postgresql"
 }
 
 
+// --- role.prisma ---
 model Role {
   id        Int       @id @default(autoincrement())
   name      String    @unique
@@ -16,6 +19,7 @@ model Role {
 }
 
 
+// --- user-role.prisma ---
 model UserRole {
   userId Int
   roleId Int
@@ -27,6 +31,7 @@ model UserRole {
 }
 
 
+// --- user.prisma ---
 model User {
   id        Int       @id @default(autoincrement())
   email     String    @unique

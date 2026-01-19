@@ -10,7 +10,11 @@ const files = fs
   .sort(); // đảm bảo thứ tự
 
 const content = files
-  .map((file) => fs.readFileSync(path.join(SCHEMA_DIR, file), 'utf8'))
+  .map(
+    (file) =>
+      `// --- ${file} ---\n` +
+      fs.readFileSync(path.join(SCHEMA_DIR, file), 'utf8'),
+  )
   .join('\n\n');
 
 fs.writeFileSync(OUTPUT, content);
